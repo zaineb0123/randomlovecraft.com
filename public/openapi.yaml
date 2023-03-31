@@ -7,23 +7,23 @@ info:
   version: '1.0'
   description: Random sentences from the complete works of H.P. Lovecraft. CORS-enabled.
 servers:
-  - url: 'https://randomlovecraft.com/api'
+  - url: https://randomlovecraft.com/api
 paths:
   /sentences:
     summary: ''
-    parameters:
+    get:
+      summary: A random sentence
+      description: ''
+      parameters:
       - schema:
           type: integer
           default: 1
           maximum: 100
         in: query
         name: limit
-    get:
-      summary: 'A random sentence'
-      description: ''
-      operationId: get-sentences
+      operationId: getSentences
       responses:
-        200:
+        '200':
           description: ''
           content:
             application/json:
@@ -38,19 +38,19 @@ paths:
         - Sentences
   /sentences/{id}:
     summary: ''
-    parameters:
+    get:
+      summary: A specific sentence
+      description: ''
+      parameters:
       - schema:
           type: string
         name: id
         in: path
         required: true
         description: Sentence ID
-    get:
-      summary: 'A specific sentence'
-      description: ''
-      operationId: get-specific-sentence
+      operationId: getSpecificSentence
       responses:
-        200:
+        '200':
           description: ''
           content:
             application/json:
@@ -63,25 +63,25 @@ paths:
         - Sentences
   /books/{id}/sentences:
     summary: ''
-    parameters:
+    get:
+      summary: Random sentences from a specific book
+      description: ''
+      parameters:
       - schema:
           type: string
         name: id
         in: path
         required: true
-        description: 'Book ID'
+        description: Book ID
       - schema:
           type: integer
           default: 1
           maximum: 100
         in: query
         name: limit
-    get:
-      summary: 'Random sentences from a specific book'
-      description: ''
-      operationId: get-sentences-from-book
+      operationId: getSentencesFromBook
       responses:
-        200:
+        '200':
           description: ''
           content:
             application/json:
@@ -97,11 +97,11 @@ paths:
   /books:
     summary: ''
     get:
-      summary: 'List all books'
+      summary: List all books
       description: ''
-      operationId: get-books
+      operationId: getBooks
       responses:
-        200:
+        '200':
           description: ''
           content:
             application/json:
@@ -124,7 +124,7 @@ components:
           example: d75b3350
         sentence:
           type: string
-          example: 'Around the first week in July I developed an unaccountable set of mixed emotions about that general northeasterly region.'
+          example: Around the first week in July I developed an unaccountable set of mixed emotions about that general northeasterly region.
         book:
           $ref: '#/components/schemas/book'
     book:
