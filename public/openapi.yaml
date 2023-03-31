@@ -13,18 +13,18 @@ paths:
     summary: ''
     get:
       summary: A random sentence
-      description: ''
+      description: 'Get a random sentence or sentences from the works of Lovecraft using the limit parameter. '
       parameters:
-      - schema:
-          type: integer
-          default: 1
-          maximum: 100
-        in: query
-        name: limit
+        - schema:
+            type: integer
+            default: 1
+            maximum: 100
+          in: query
+          name: limit
       operationId: getSentences
       responses:
         '200':
-          description: ''
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -40,18 +40,18 @@ paths:
     summary: ''
     get:
       summary: A specific sentence
-      description: ''
+      description: 'Get a specific sentence from the works of Lovecraft using the sentence ID.'
       parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-        description: Sentence ID
+        - schema:
+            type: string
+          name: id
+          in: path
+          required: true
+          description: Sentence ID
       operationId: getSpecificSentence
       responses:
         '200':
-          description: ''
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -65,24 +65,24 @@ paths:
     summary: ''
     get:
       summary: Random sentences from a specific book
-      description: ''
+      description: 'Get random sentences from a specific book using the Book ID. '
       parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-        description: Book ID
-      - schema:
-          type: integer
-          default: 1
-          maximum: 100
-        in: query
-        name: limit
+        - schema:
+            type: string
+          name: id
+          in: path
+          required: true
+          description: Book ID
+        - schema:
+            type: integer
+            default: 1
+            maximum: 100
+          in: query
+          name: limit
       operationId: getSentencesFromBook
       responses:
         '200':
-          description: ''
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -98,11 +98,11 @@ paths:
     summary: ''
     get:
       summary: List all books
-      description: ''
+      description: 'Get all books of Lovecraft.'
       operationId: getBooks
       responses:
         '200':
-          description: ''
+          description: 'OK'
           content:
             application/json:
               schema:
