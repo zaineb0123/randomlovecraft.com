@@ -36,31 +36,6 @@ paths:
                       $ref: '#/components/schemas/sentence'
       tags:
         - Sentences
-  /sentences/{id}:
-    summary: ''
-    get:
-      summary: A specific sentence
-      description: 'Get a specific sentence from the works of Lovecraft using the sentence ID.'
-      parameters:
-        - schema:
-            type: string
-          name: id
-          in: path
-          required: true
-          description: Sentence ID
-      operationId: getSpecificSentence
-      responses:
-        '200':
-          description: 'OK'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/sentence'
-      tags:
-        - Sentences
   /books/{id}/sentences:
     summary: ''
     get:
